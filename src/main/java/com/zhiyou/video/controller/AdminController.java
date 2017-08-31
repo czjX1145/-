@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.zhiyou.video.model.Admin;
 import com.zhiyou.video.service.adminService;
 
+@RequestMapping("/admin")
 @Controller
 public class AdminController {
 
@@ -20,7 +21,7 @@ public class AdminController {
 	adminService as;    
 	
 	    //用户处理
-		@RequestMapping("/admin/adminLogin.action")
+		@RequestMapping("/adminLogin.action")
 		public String admin(HttpServletRequest request, Admin ad) {
 			Admin findAdmin = as.findAdmin(ad);
 			if(findAdmin != null){
@@ -31,7 +32,7 @@ public class AdminController {
 			}						
 		}	
 		//用户退出
-		@RequestMapping("/admin/outLogin.action")
+		@RequestMapping("/outLogin.action")
 		public String adminOut(HttpServletRequest request, Admin ad,HttpSession session) {			
 			request.getSession().setAttribute("admin",null);			
 				return "/index";
